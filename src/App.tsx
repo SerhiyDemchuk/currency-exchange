@@ -25,7 +25,7 @@ const App: React.FC = () => {
                         <>Loading...</>
                     </Stack>
                 ) : (
-                    <Paper sx={{ height: '100vh'}}>
+                    <Paper>
                         <header>
                             <Header />
                         </header>
