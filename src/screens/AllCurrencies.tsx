@@ -61,7 +61,11 @@ const AllCurrencies: React.FC<Props> = (props: Props) => {
                     <h2>All currencies</h2>
                     <SearchInput searchCurrencyName={searchCurrencyName} />
                 </Stack>
-                {filterArray(allCurrencies).map((item: IAddedCurrency, index: number) => (
+                {filterArray(allCurrencies).sort((a: IAddedCurrency, b: IAddedCurrency) => {
+                    if (a.currency < b.currency) return -1;
+                    if (a.currency > b.currency) return 1;
+                    return 0;
+                }).map((item: IAddedCurrency, index: number) => (
                     <Item
                         handleCurrency={handleCurrency}
                         key={index}

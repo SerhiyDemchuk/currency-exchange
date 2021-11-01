@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         alignItems: 'center',
     },
     pageTitle: {
-        maxWidth: 545, 
+        maxWidth: 545,
         width: "100%",
         [theme.breakpoints.down('sm')]: {
             flexWrap: 'wrap',
@@ -58,13 +58,17 @@ const MyCurrencies: React.FC<Props> = (props: Props) => {
                     <h2>My currencies</h2>
                     <SearchInput searchCurrencyName={searchCurrencyName} />
                 </Stack>
-                {filterArray(addedCurrencies).map((item: IAddedCurrency, index: number) => (
-                    <Item
-                        handleCurrency={handleCurrency}
-                        key={index}
-                        currencyName={item.currency}
-                        isAdded={item.isAdded}
-                    />
+                {filterArray(addedCurrencies).sort((a: IAddedCurrency, b: IAddedCurrency) => {
+                    if (a.currency < b.currency) return -1;
+                    if (a.currency > b.currency) return 1;
+                    return 0;
+                }).map((item: IAddedCurrency, index: number) => (
+                <Item
+                    handleCurrency={handleCurrency}
+                    key={index}
+                    currencyName={item.currency}
+                    isAdded={item.isAdded}
+                />
                 ))}
             </main>
         </Stack>
