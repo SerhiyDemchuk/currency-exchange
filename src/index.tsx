@@ -12,16 +12,19 @@ import { currencySlice } from './redux/reducers/currencySlice';
 const getTodosFromLocalStorage = () => {
     try {
         const persistedState = localStorage.getItem('reduxState');
-        if (persistedState) {
-            return JSON.parse(persistedState);
+        if (persistedState === null) {
+            return undefined;
         }
+        return JSON.parse(persistedState);
     }
     catch (e) {
         console.log(e);
+        return undefined;
     }
 }
 
 const todos = getTodosFromLocalStorage();
+
 if (todos) {
     store.dispatch(currencySlice.actions.hydrate(todos));
 }

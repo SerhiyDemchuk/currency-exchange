@@ -11,9 +11,9 @@ export const setupStore = () => {
     });
 }
 export const store = setupStore();
-// store.subscribe(()=>{
+// store.subscribe(() => {
 //     localStorage.setItem('reduxState', JSON.stringify(store.getState().currencyReducer))
-//   });
+// });
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;

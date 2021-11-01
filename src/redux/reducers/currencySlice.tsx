@@ -52,7 +52,6 @@ export const currencySlice = createSlice({
         },
         searchCurrency(state, action: PayloadAction<string>) {
             state.searchCurrency = action.payload;
-            console.log(action.payload);
         }
     },
     extraReducers: {

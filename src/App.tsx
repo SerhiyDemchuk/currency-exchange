@@ -1,4 +1,4 @@
-import { Stack } from '@mui/material';
+import { Paper, Stack } from '@mui/material';
 import React, { useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from './components/Header';
@@ -10,22 +10,22 @@ import CurrencyExchange from './screens/CurrencyExchange';
 import MyCurrencies from './screens/MyCurrencies';
 
 const App: React.FC = () => {
-    const dispatch = useTypedDispatch();
     const { isLoading } = useTypedSelector((state: RootState) => state.currencyReducer);
+    const dispatch = useTypedDispatch();
 
     useEffect(() => {
         dispatch(fetchCurrencies());
-    }, [dispatch]);
+    }, []);
 
     return (
         <>
             {
                 isLoading ? (
                     <Stack>
-                        <div>Loading...</div>
+                        <>Loading...</>
                     </Stack>
                 ) : (
-                    <>
+                    <Paper sx={{ height: '100vh'}}>
                         <header>
                             <Header />
                         </header>
@@ -48,7 +48,7 @@ const App: React.FC = () => {
                                 component={CurrencyExchange}
                             />
                         </Switch>
-                    </>
+                    </Paper>
                 )
             }
         </>
