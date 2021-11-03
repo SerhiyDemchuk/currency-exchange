@@ -25,7 +25,7 @@ const App: React.FC = () => {
                         <>Loading...</>
                     </Stack>
                 ) : (
-                    <Paper>
+                    <Paper sx={{ width: '100%'}}>
                         <header>
                             <Header />
                         </header>
