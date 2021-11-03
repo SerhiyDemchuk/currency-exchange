@@ -18,14 +18,14 @@ const App: React.FC = () => {
     }, []);
 
     return (
-        <>
+        <Stack>
             {
                 isLoading ? (
                     <Stack>
                         <>Loading...</>
                     </Stack>
                 ) : (
-                    <Paper sx={{ width: '100%'}}>
+                    <Paper sx={{ minHeight: '100vh'}}>
                         <header>
                             <Header />
                         </header>
@@ -51,7 +51,7 @@ const App: React.FC = () => {
                     </Paper>
                 )
             }
-        </>
+        </Stack>
     )
 };
 

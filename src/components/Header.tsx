@@ -47,7 +47,6 @@ const Header: React.FC<Props> = () => {
                 justifyContent: 'space-between',
                 flexDirection: 'row',
                 paddingY: 1,
-                paddingX: 2,
                 marginBottom: 5,
                 flexGrow: 1,
                 borderBottom: 1,
